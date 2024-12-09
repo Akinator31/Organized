@@ -21,5 +21,5 @@ int get_unique_id(linked_list_t *list)
             max_id = ((hardware_t *)(temp->data))->id;
         temp = temp->next;
     }
-    return max_id + 1;  
+    return max_id + 1;
 }

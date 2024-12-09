@@ -35,7 +35,8 @@ int check_sorting_args(char **args)
         return 84;
     }
     for (int i = 0; args[i] != NULL; i++) {
-        if (is_a_tags(args[i]) && (args[i + 1] != NULL) && (my_strcmp(args[i + 1], "-r") == 0)) {
+        if (is_a_tags(args[i]) && (args[i + 1] != NULL)
+            && (my_strcmp(args[i + 1], "-r") == 0)) {
             i++;
             continue;
         }
