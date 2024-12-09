@@ -15,5 +15,6 @@ int is_good_type(char *type);
 int check_del_args(char **args);
 void free_hardware(void *data);
 void my_free(int nb_value, ...);
+int check_sorting_args(char **args);
 
 #endif

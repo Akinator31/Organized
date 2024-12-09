@@ -10,15 +10,16 @@
 #include "my_lib.h"
 #include "my_list.h"
 #include "hardware.h"
+#include "my_printf.h"
 
 void print_disp_detail(linked_list_t *list)
 {
-    my_putstr(((hardware_t *)(*(linked_list_t **)(list))->data)->type);
-    write(1, " n°", 4);
-    my_put_nbr(((hardware_t *)(*(linked_list_t **)(list))->data)->id);
-    write(1, " - \"", 5);
-    my_putstr(((hardware_t *)(*(linked_list_t **)(list))->data)->name);
-    write(1, "\"\n", 3);
+    my_printf("%s", ((hardware_t *)(*(linked_list_t **)(list))->data)->type);
+    my_printf(" n°");
+    my_printf("%d", ((hardware_t *)(*(linked_list_t **)(list))->data)->id);
+    my_printf(" - \"");
+    my_printf(((hardware_t *)(*(linked_list_t **)(list))->data)->name);
+    my_printf("\"\n");
 }
 
 int disp(void *data, char **args)

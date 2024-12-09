@@ -12,15 +12,16 @@
 #include "hardware.h"
 #include "utils.h"
 #include "my_lib.h"
+#include "my_printf.h"
 
 void print_del_detail(hardware_t *hardware)
 {
-    my_putstr(hardware->type);
-    write(1, " n°", 4);
-    my_put_nbr(hardware->id);
-    write(1, " - \"", 5);
-    my_putstr(hardware->name);
-    write(1, "\" deleted.\n", 12);
+    my_printf("%s", hardware->type);
+    my_printf(" n°", 4);
+    my_printf("%d", hardware->id);
+    my_printf(" - \"");
+    my_printf("%s", hardware->name);
+    my_printf("\" deleted.\n");
 }
 
 linked_list_t *pop_from_index(linked_list_t *list, int index)

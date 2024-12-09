@@ -15,7 +15,7 @@ char is_alpha(char act_char)
     return act_char;
 }
 
-int my_strcmp(char *s1, char *s2)
+int my_strcmp(char const *s1, char const *s2)
 {
     int i = 0;
     int result = 0;

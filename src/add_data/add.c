@@ -11,6 +11,7 @@
 #include "my_lib.h"
 #include "utils.h"
 #include "hardware.h"
+#include "my_printf.h"
 
 hardware_t *create_hardware(linked_list_t *list, char *type, char *name)
 {
@@ -24,12 +25,12 @@ hardware_t *create_hardware(linked_list_t *list, char *type, char *name)
 
 void print_add_detail(void *data)
 {
-    my_putstr(((hardware_t *)(*(linked_list_t **)(data))->data)->type);
-    write(1, " n°", 4);
-    my_put_nbr(((hardware_t *)(*(linked_list_t **)(data))->data)->id);
-    write(1, " - \"", 5);
-    my_putstr(((hardware_t *)(*(linked_list_t **)(data))->data)->name);
-    write(1, "\" added.\n", 10);
+    my_printf("%s", ((hardware_t *)(*(linked_list_t **)(data))->data)->type);
+    my_printf(" n°");
+    my_printf("%d", ((hardware_t *)(*(linked_list_t **)(data))->data)->id);
+    my_printf(" - \"");
+    my_printf("%s", ((hardware_t *)(*(linked_list_t **)(data))->data)->name);
+    my_printf("\" added.\n");
 }
 
 int add(void *data, char **args)

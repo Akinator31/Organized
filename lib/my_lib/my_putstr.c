@@ -9,6 +9,7 @@
 
 int my_putstr(char const *str)
 {
-    for (str; *str != '\0'; str++)
-        my_putchar(*str);
+    for (int i = 0; str[i] != '\0'; i++) {
+        my_putchar(str[i]);
+    }
 }

@@ -8,7 +8,7 @@
 #include "my_lib.h"
 #include <stdlib.h>
 
-int compute(int nb, char *buffer, int counter_digits, int divider)
+int compute_strnum(int nb, char *buffer, int counter_digits, int divider)
 {
     int i = 0;
 
@@ -33,7 +33,7 @@ char *my_strnum(int nb)
     int divider = 1;
     int counter_digits = 1;
     char *buffer = malloc(sizeof(char) * 500);
-    int test = compute(nb, buffer, counter_digits, divider);
+    int test = compute_strnum(nb, buffer, counter_digits, divider);
 
     buffer[test] = '\0';
     return buffer;
