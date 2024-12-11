@@ -8,3 +8,4 @@ launch.sh
 test.sh
 test1.sh
 tests_maker
+coverage

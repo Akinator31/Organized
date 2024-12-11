@@ -19,5 +19,6 @@ char *my_strdup(char const *src);
 int my_getnbr(char const *str);
 int my_compute_power_rec(int nb, int p);
 int my_putstr(char const *str);
+char *my_strcpy(char *dest, char const *src);
 
 #endif
