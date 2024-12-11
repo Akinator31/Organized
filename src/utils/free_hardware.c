@@ -13,6 +13,6 @@ void free_hardware(void *data)
     hardware_t *hardware = ((hardware_t *)(data));
 
     free(((hardware_t *)(data))->name);
-    free(((hardware_t *)(data))->name);
+    free(((hardware_t *)(data))->type);
     free(((hardware_t *)(data)));
 }

@@ -9,10 +9,18 @@
 #include "shell.h"
 #include "my_lib.h"
 #include "my_list.h"
+#include "utils.h"
 
 int main(void)
 {
-    linked_list_t *list = new_list();
+    device_list_t *device_list =
+        (device_list_t *)malloc(sizeof(device_list_t));
+    int exit_code = 0;
 
-    return workshop_shell(&list);
+    device_list->list = NULL;
+    device_list->id = 0;
+    exit_code = workshop_shell(device_list);
+    clear_list(device_list->list, free_hardware);
+    free(device_list);
+    return exit_code;
 }

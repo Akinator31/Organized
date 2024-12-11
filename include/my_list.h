@@ -12,7 +12,13 @@
     #include <fcntl.h>
     #include "my_list.h"
 
+typedef struct device_list_s device_list_t;
 typedef struct linked_list_s linked_list_t;
+
+struct device_list_s {
+    linked_list_t *list;
+    int id;
+};
 
 struct linked_list_s {
     linked_list_t *next;

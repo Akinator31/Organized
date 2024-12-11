@@ -14,19 +14,25 @@
 
 void print_disp_detail(linked_list_t *list)
 {
-    my_printf("%s", ((hardware_t *)(*(linked_list_t **)(list))->data)->type);
+    hardware_t *hardware = (hardware_t *)((linked_list_t *)(list))->data;
+
+    my_printf("%s", hardware->type);
     my_printf(" n°");
-    my_printf("%d", ((hardware_t *)(*(linked_list_t **)(list))->data)->id);
+    my_printf("%d", hardware->id);
     my_printf(" - \"");
-    my_printf(((hardware_t *)(*(linked_list_t **)(list))->data)->name);
+    my_printf(hardware->name);
     my_printf("\"\n");
 }
 
 int disp(void *data, char **args)
 {
-    linked_list_t *temp = data;
+    linked_list_t *temp = ((device_list_t *)(data))->list;
 
-    while (temp->next != NULL) {
+    if (args[0] != NULL) {
+        write(2, "No arguments are needed for the disp command\n", 46);
+        return 84;
+    }
+    while (temp != NULL) {
         print_disp_detail(temp);
         temp = temp->next;
     }

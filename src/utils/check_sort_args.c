@@ -26,24 +26,22 @@ int is_a_tags(char *arg)
 
 int check_sorting_args(char **args)
 {
-    if (*args == NULL) {
-        write(2, "No argument in sort command\n", 29);
-        return 84;
-    }
-    if (my_strcmp(args[0], "-r") == 0) {
+    int nb_tags = 0;
+
+    if ((*args == NULL) || (my_strcmp(args[0], "-r") == 0)) {
         write(2, "Incorrect argument in sort command\n", 36);
         return 84;
     }
     for (int i = 0; args[i] != NULL; i++) {
         if (is_a_tags(args[i]) && (args[i + 1] != NULL)
             && (my_strcmp(args[i + 1], "-r") == 0)) {
+            nb_tags += 1;
             i++;
             continue;
         }
-        if (is_a_tags(args[i]))
-            continue;
-        else
+        if (!is_a_tags(args[i]))
             return 84;
+        nb_tags += 1;
     }
-    return 1;
+    return nb_tags;
 }

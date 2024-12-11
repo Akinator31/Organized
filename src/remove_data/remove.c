@@ -29,7 +29,7 @@ linked_list_t *pop_from_index(linked_list_t *list, int index)
     linked_list_t *prev = NULL;
     linked_list_t *temp = list;
 
-    if (((hardware_t *)(temp->data))->id == index) {
+    if ((list != NULL) && (((hardware_t *)(temp->data))->id == index)) {
         list = temp->next;
         print_del_detail(temp->data);
         my_free(2, temp->data, temp);
@@ -49,17 +49,18 @@ linked_list_t *pop_from_index(linked_list_t *list, int index)
 
 int del(void *data, char **args)
 {
-    if (*((linked_list_t **)(data)) == NULL) {
+    if (((device_list_t *)(linked_list_t *)(data))->list == NULL) {
         write(1, "Device list is empty\n", 22);
-        return 0;
+        return 84;
     }
     if (!check_del_args(args)) {
         write(2, "Incorrect argument in DEL command\n", 35);
         return 84;
     }
     for (int i = 0; args[i] != NULL; i++) {
-        *((linked_list_t **)(data)) =
-            pop_from_index(*((linked_list_t **)(data)), my_getnbr(args[i]));
+        ((device_list_t *)(linked_list_t *)(data))->list =
+            pop_from_index(((device_list_t *)(linked_list_t *)(data))->
+                list, my_getnbr(args[i]));
     }
     return 0;
 }
