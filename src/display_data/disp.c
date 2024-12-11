@@ -11,6 +11,7 @@
 #include "my_list.h"
 #include "hardware.h"
 #include "my_printf.h"
+#include "error_handling.h"
 
 void print_disp_detail(linked_list_t *list)
 {
@@ -28,10 +29,8 @@ int disp(void *data, char **args)
 {
     linked_list_t *temp = ((device_list_t *)(data))->list;
 
-    if (args[0] != NULL) {
-        write(2, "No arguments are needed for the disp command\n", 46);
-        return 84;
-    }
+    if (args[0] != NULL)
+        return no_argument_is_needed();
     while (temp != NULL) {
         print_disp_detail(temp);
         temp = temp->next;

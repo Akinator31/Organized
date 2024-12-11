@@ -15,6 +15,8 @@ linked_list_t *push_front_list(linked_list_t *list, void *data)
 {
     linked_list_t *new_element = malloc(sizeof(linked_list_t));
 
+    if (data == NULL)
+        return NULL;
     new_element->data = data;
     new_element->next = list;
     return new_element;

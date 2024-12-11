@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "my_lib.h"
+#include "error_handling.h"
 
 static const char *sorting_tags[] = {
     "TYPE",
@@ -28,10 +29,8 @@ int check_sorting_args(char **args)
 {
     int nb_tags = 0;
 
-    if ((*args == NULL) || (my_strcmp(args[0], "-r") == 0)) {
-        write(2, "Incorrect argument in sort command\n", 36);
-        return 84;
-    }
+    if ((*args == NULL) || (my_strcmp(args[0], "-r") == 0))
+        return incorrect_arguments_in_sort_command();
     for (int i = 0; args[i] != NULL; i++) {
         if (is_a_tags(args[i]) && (args[i + 1] != NULL)
             && (my_strcmp(args[i + 1], "-r") == 0)) {

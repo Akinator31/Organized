@@ -10,6 +10,7 @@
 #include "my_lib.h"
 #include "my_list.h"
 #include "utils.h"
+#include "error_handling.h"
 
 int main(void)
 {
@@ -17,6 +18,8 @@ int main(void)
         (device_list_t *)malloc(sizeof(device_list_t));
     int exit_code = 0;
 
+    if (device_list == NULL)
+        return probleme_device_list_alloc();
     device_list->list = NULL;
     device_list->id = 0;
     exit_code = workshop_shell(device_list);
