@@ -9,11 +9,8 @@ SRC = $(shell find . -type f -name "*.c" ! -path "./tests/*")
 SRC_TESTS = $(shell find . -type f -name "*.c" ! -name "main.c")
 LIB = $(shell find . -type f -name "*.a")
 OBJ = 	$(SRC:%.c=build/%.o)
-OBJ :=	$(filter-out organized_tests.c, $(OBJ))
 OBJ_DEBUG = 	$(SRC:%.c=build-debug/%.o)
-OBJ_DEBUG :=	$(filter-out organized_tests.c, $(OBJ_DEBUG))
 OBJS_TESTS = $(SRC_TESTS:%.c=build-tests/%.o)
-OBJS_TESTS := $(filter-out main.c, $(OBJS_TESTS))
 DEBUG_FLAGS = -g3 -Iinclude -fsanitize=address
 TEST_FLAGS = -Iinclude --coverage -lgcov -lcriterion
 CFLAGS += -Iinclude

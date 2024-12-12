@@ -23,7 +23,7 @@ int main(void)
     device_list->list = NULL;
     device_list->id = 0;
     exit_code = workshop_shell(device_list);
-    clear_list(device_list->list, free_hardware);
+    device_list->list = clear_list(device_list->list, free_hardware);
     free(device_list);
     return exit_code;
 }

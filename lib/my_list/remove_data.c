@@ -19,6 +19,7 @@ linked_list_t *pop_front_list(linked_list_t *list,
     }
     if (list->next == NULL) {
         clean_func(list);
+        list = NULL;
         return list;
     }
     temp = list->next;

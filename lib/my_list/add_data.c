@@ -40,6 +40,11 @@ linked_list_t *push_back_list(linked_list_t *list, void *data)
     linked_list_t *temp = list;
     linked_list_t *prev;
 
+    if (list == NULL) {
+        new_element->data = data;
+        new_element->next = NULL;
+        return new_element;
+    }
     while (temp != NULL) {
         prev = temp;
         temp = temp->next;

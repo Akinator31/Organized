@@ -8,13 +8,6 @@
 #include <stdlib.h>
 #include "my_lib.h"
 
-char is_alpha(char act_char)
-{
-    if ((act_char >= 'A') && (act_char <= 'Z'))
-        return act_char + 32;
-    return act_char;
-}
-
 int my_strcmp(char const *s1, char const *s2)
 {
     int i = 0;
