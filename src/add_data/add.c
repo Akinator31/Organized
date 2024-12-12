@@ -53,6 +53,8 @@ int add(void *data, char **args)
     device_list_t *dvice = (device_list_t *)(data);
     int checker = 0;
 
+    if (args[0] == NULL)
+        return 84;
     if ((nb_args % 2) != 0)
         return incorrect_number_of_argument();
     for (int i = 0; (i < nb_args) && (checker != 84); i++) {
