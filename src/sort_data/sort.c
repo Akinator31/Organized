@@ -10,7 +10,7 @@
 #include "my_list.h"
 #include "hardware.h"
 #include "my_lib.h"
-#include <utils.h>
+#include "utils.h"
 
 int compare_data(linked_list_t *first_part,
     linked_list_t *second_part, cmp_func_t *p)
